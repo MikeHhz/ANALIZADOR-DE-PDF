@@ -1,0 +1,12 @@
+if __name__ == "__main__":
+    archivo_pdf = 'archivo_pdf.pdf'
+    archivo_palabras = 'palabras_a_buscar.txt'
+    archivo_salida = 'coincidencias.txt'
+
+    palabras_a_buscar = leer_palabras_a_buscar(archivo_palabras)
+    coincidencias = buscar_palabras_en_pdf(archivo_pdf, palabras_a_buscar)
+    guardar_coincidencias(coincidencias, archivo_salida)
+
+    print("Se han encontrado y guardado las siguientes coincidencias:")
+    for match in coincidencias:
+        print(match)

@@ -1,0 +1,11 @@
+  coincidencias = set()
+    for palabra in palabras_a_buscar:
+        matches = re.findall(r'\b{}\b'.format(re.escape(palabra)), pdf_text, re.IGNORECASE)
+        coincidencias.update(matches)
+
+    return coincidencias
+
+def guardar_coincidencias(coincidencias, archivo_salida):
+    with open(archivo_salida, 'w') as file:
+        for match in coincidencias:
+            file.write(match + '\n')
